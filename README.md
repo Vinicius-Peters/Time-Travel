@@ -1,4 +1,4 @@
-## Escolha o idioma / Choose the language
+# Escolha o idioma / Choose the language
 - [Português (BR)](README.md)
 - [English](README_EN.md)
 
