@@ -4,6 +4,7 @@
 
   
 # Time Travel usando Pyspark
+
 Viagem no tempo no contexto de rollback significa reverter um sistema de computador para um estado anterior, garantindo a integridade dos dados. Ao contrário de edições diretas, ele desfaz alterações retornando a um ponto anterior consistente, sendo valioso para lidar com operações falhas em bancos de dados.
 
 ## Code:
