@@ -3,8 +3,8 @@
 - [English](README_EN.md)
 
   
-# Time Travel using PySpark
-Time Travel in rollback means reverting a computer system to a prior state, ensuring data integrity. Unlike direct edits, it undoes changes by returning to a consistent earlier point, valuable for handling failed operations in databases.
+# Time Travel usando Pyspark
+Viagem no tempo no contexto de rollback significa reverter um sistema de computador para um estado anterior, garantindo a integridade dos dados. Ao contrário de edições diretas, ele desfaz alterações retornando a um ponto anterior consistente, sendo valioso para lidar com operações falhas em bancos de dados.
 
 ## Code:
 
@@ -18,20 +18,21 @@ display(latestHistory)
 
 df_read = spark.read.format("delta").option("timestampAsOf", "2022-12-23 21:08:24.659").load("abfss://layer@tech.dfs.core.windows.net/sample/path/table)
 
-# Information:
-### from delta.tables import *: 
---Imports the necessary classes and methods from the delta.tables library.
 
-### deltaTable = DeltaTable.forPath(spark, "abfss://layer@tech.dfs.core.windows.net/example/of/path/table") 
---Creates a reference to a specified Delta Table located at the provided path. The variable deltaTable now represents the Delta Table located at the specified path.
+## Informações:
+### from delta.tables import *:
+-- Importa as classes e métodos necessários da biblioteca delta.tables.
+
+### deltaTable = DeltaTable.forPath(spark, "abfss://layer@tech.dfs.core.windows.net/exemplo/de/path/tabela")
+-- Cria uma referência a uma Delta Table específica localizada no caminho fornecido. A variável deltaTable agora representa a Delta Table localizada no caminho especificado.
 
 ### latestHistory = deltaTable.history()
---Retrieves the history of operations performed on the Delta Table. This includes information about the versions of the table, the operations performed in each version, and the dates associated with these operations. The result is stored in the variable latestHistory.
+-- Recupera o histórico de operações realizadas na Delta Table. Isso inclui informações sobre as versões da tabela, as operações realizadas em cada versão e as datas associadas a essas operações. O resultado é armazenado na variável latestHistory.
 
 ### display(latestHistory)
--- Displays the obtained history. display is a function used to visualize results in environments like Databricks, for example.
+-- Exibe o histórico obtido anteriormente. display é uma função usada para visualizar resultados em ambientes como o Databricks, por exemplo.
 
-### df_read = spark.read.format("delta").option("timestampAsOf", "2022-12-23 21:08:24.659").load("abfss://layer@tech.dfs.core.windows.net/example/of/path/table")
---Reads data from the Delta Table into a Spark DataFrame. The "timestampAsOf" option specifies a specific version of the data to read, in this case, the version corresponding to the provided date and time ("2022-12-23 21:08:24.659").
+### df_read = spark.read.format("delta").option("timestampAsOf", "2022-12-23 21:08:24.659").load("abfss://layer@tech.dfs.core.windows.net/exemplo/de/path/tabela")
+-- Lê dados da Delta Table em um DataFrame do Spark. A opção "timestampAsOf" especifica uma versão específica dos dados para ler, neste caso, a versão correspondente à data e hora fornecidas ("2022-12-23 21:08:24.659").
 
-In summary, this code works with Delta Tables in the context of Apache Spark, allowing access to the table's history and reading data from a specific version based on timestamp information.
+Em resumo, este código trabalha com Delta Tables no contexto do Apache Spark, permitindo acesso ao histórico da tabela e leitura de dados de uma versão específica com base em informações de carimbo de data e hora.
